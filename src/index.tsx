@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>
-        <BrowserRouter basename="/poshta">
+        <BrowserRouter basename="/poshta/">
             <App />
         </BrowserRouter>
     </React.StrictMode>
