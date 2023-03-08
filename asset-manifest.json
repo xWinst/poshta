@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/poshtaAPI/static/css/main.f7548144.css",
+    "main.js": "/poshtaAPI/static/js/main.186e45f0.js",
+    "static/css/371.cef96682.chunk.css": "/poshtaAPI/static/css/371.cef96682.chunk.css",
+    "static/js/371.b8f2357c.chunk.js": "/poshtaAPI/static/js/371.b8f2357c.chunk.js",
+    "static/media/icons.svg": "/poshtaAPI/static/media/icons.24bea932fff5dcc7ceb57317736c7756.svg",
+    "index.html": "/poshtaAPI/index.html",
+    "main.f7548144.css.map": "/poshtaAPI/static/css/main.f7548144.css.map",
+    "main.186e45f0.js.map": "/poshtaAPI/static/js/main.186e45f0.js.map",
+    "371.cef96682.chunk.css.map": "/poshtaAPI/static/css/371.cef96682.chunk.css.map",
+    "371.b8f2357c.chunk.js.map": "/poshtaAPI/static/js/371.b8f2357c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f7548144.css",
+    "static/js/main.186e45f0.js"
+  ]
+}
