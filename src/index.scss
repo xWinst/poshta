@@ -4,3 +4,8 @@
 @import 'sass/variables';
 @import 'sass/reset';
 @import 'sass/common';
+
+.main {
+  padding: 10px;
+  background-image: $bgGradient;
+}

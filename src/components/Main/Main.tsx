@@ -1,10 +1,11 @@
-import TTNForm from "components/TTNForm/TTNForm";
+import { TTNForm, StatusTTN } from "components";
 import { FC } from "react";
 
 const Main: FC = () => {
     return (
         <>
             <TTNForm />
+            <StatusTTN />
         </>
     );
 };
