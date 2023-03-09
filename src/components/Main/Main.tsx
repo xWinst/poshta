@@ -1,4 +1,4 @@
-import { TTNForm, StatusTTN } from "components";
+import { TTNForm, StatusTTN, History } from "components";
 import { FC } from "react";
 
 const Main: FC = () => {
@@ -6,6 +6,7 @@ const Main: FC = () => {
         <>
             <TTNForm />
             <StatusTTN />
+            <History />
         </>
     );
 };
