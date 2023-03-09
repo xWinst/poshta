@@ -1,0 +1,30 @@
+@import '../../sass/variables';
+@import '../../sass/mixins';
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-image: $headerGradient;
+  }
+
+.link {
+    display: block;
+    padding: 10px;
+    font-weight: 700;
+    text-align: center;
+    color: $thirdColor;
+  
+    transition: color 300ms ease;
+  
+    &:hover {
+      color: $accentColor;
+      text-decoration: none;
+    }
+  }
+  
+  
+  .active {
+    @extend .link;
+    color: $accentColor;
+  }
