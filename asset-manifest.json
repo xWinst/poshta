@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/poshta/static/css/main.f7548144.css",
-    "main.js": "/poshta/static/js/main.71b334d3.js",
+    "main.css": "/poshta/static/css/main.d4b5775a.css",
+    "main.js": "/poshta/static/js/main.58ce6d3a.js",
     "static/css/371.cef96682.chunk.css": "/poshta/static/css/371.cef96682.chunk.css",
-    "static/js/371.b8f2357c.chunk.js": "/poshta/static/js/371.b8f2357c.chunk.js",
+    "static/js/371.e96fcda7.chunk.js": "/poshta/static/js/371.e96fcda7.chunk.js",
     "static/media/icons.svg": "/poshta/static/media/icons.24bea932fff5dcc7ceb57317736c7756.svg",
     "index.html": "/poshta/index.html",
-    "main.f7548144.css.map": "/poshta/static/css/main.f7548144.css.map",
-    "main.71b334d3.js.map": "/poshta/static/js/main.71b334d3.js.map",
+    "main.d4b5775a.css.map": "/poshta/static/css/main.d4b5775a.css.map",
+    "main.58ce6d3a.js.map": "/poshta/static/js/main.58ce6d3a.js.map",
     "371.cef96682.chunk.css.map": "/poshta/static/css/371.cef96682.chunk.css.map",
-    "371.b8f2357c.chunk.js.map": "/poshta/static/js/371.b8f2357c.chunk.js.map"
+    "371.e96fcda7.chunk.js.map": "/poshta/static/js/371.e96fcda7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f7548144.css",
-    "static/js/main.71b334d3.js"
+    "static/css/main.d4b5775a.css",
+    "static/js/main.58ce6d3a.js"
   ]
 }
