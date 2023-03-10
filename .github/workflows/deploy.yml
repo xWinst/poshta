@@ -20,6 +20,15 @@ jobs:
               env:
                   REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
                   REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+              run: echo "Environment variables are set up"
+
+            - name: Debug
+              env:
+                  REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
+                  REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+              run: |
+                  echo "REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}"
+                  echo "REACT_APP_API_KEY: $REACT_APP_API_KEY"
 
             - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@4.1.0
