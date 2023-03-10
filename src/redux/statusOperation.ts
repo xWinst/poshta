@@ -2,9 +2,9 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { addTTN } from "./historyReducer";
 
-const { REACT_APP_BASE_URL, REACT_APP_API_KEY } = process.env;
+// const { REACT_APP_BASE_URL, REACT_APP_API_KEY } = process.env;
 
-axios.defaults.baseURL = REACT_APP_BASE_URL;
+axios.defaults.baseURL = "https://api.novaposhta.ua/v2.0/json/";
 
 export type Status = {
     isLoading: boolean;
@@ -27,7 +27,7 @@ export const getStatus = createAsyncThunk<
 >("getStatus", async (number, { dispatch, rejectWithValue }) => {
     try {
         const { data } = await axios.post("", {
-            apiKey: REACT_APP_API_KEY,
+            apiKey: "8e904f55406e03101da547dfe0c30720",
             modelName: "TrackingDocument",
             calledMethod: "getStatusDocuments",
             methodProperties: {
