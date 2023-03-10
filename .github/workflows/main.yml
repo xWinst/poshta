@@ -1,8 +1,0 @@
-name: My Workflow
-on: [push]
-jobs:
-  my_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: MySteps
-        run: echo ${{ secrets.REACT_APP_BASE_URL }}
