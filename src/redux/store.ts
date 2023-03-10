@@ -11,17 +11,17 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import statusReducer from "./statusReducer";
-// import productSlice from './productReducers';
+import historyReducer from "./historyReducer";
 
 const persistConfig = {
-    key: "status",
+    key: "history",
     storage,
     whitelist: ["list"],
 };
 
 const rootReducer = combineReducers({
-    status: persistReducer(persistConfig, statusReducer),
-    // branches: persistReducer(persistConfig, branchesReducer),
+    status: statusReducer,
+    history: persistReducer(persistConfig, historyReducer),
 });
 
 export const store = configureStore({
