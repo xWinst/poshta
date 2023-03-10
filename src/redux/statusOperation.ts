@@ -5,46 +5,65 @@ const { REACT_APP_BASE_URL, REACT_APP_API_KEY } = process.env;
 
 axios.defaults.baseURL = REACT_APP_BASE_URL;
 
-export type Article = {
-    id: number;
-    featured: boolean;
-    title: string;
-    url: string;
-    imageUrl: string;
-    newsSite: string;
-    summary: string;
-    publishedAt: string;
-    launches: [
-        {
-            id: string;
-            provider: string;
-        }
-    ];
-    events: [
-        {
-            id: string;
-            provider: string;
-        }
-    ];
+export type Status = {
+    isLoading: boolean;
+    status: string;
+    receivedDate: string;
+    deliveryDate: string;
+    recipientCity: string;
+    senderCity: string;
+    dispatchDate: string;
+    isParcelDelivered: boolean;
+    senderBranch: string;
+    recipientBranch: string;
+    error: string | undefined;
 };
 
 export const getStatus = createAsyncThunk<
+    Status,
     string,
-    undefined,
     { rejectValue: string }
->("getLastArticles", async (number, { rejectWithValue }) => {
+>("getStatus", async (number, { rejectWithValue }) => {
     try {
-        const { data } = await axios.get("", {
-            params: {
-                apiKey: REACT_APP_API_KEY,
-                modelName: "TrackingDocument",
-                calledMethod: "getStatusDocuments",
-                methodProperties: {
-                    Documents: [{ DocumentNumber: `${number}` }],
-                },
+        const { data } = await axios.post("", {
+            apiKey: REACT_APP_API_KEY,
+            modelName: "TrackingDocument",
+            calledMethod: "getStatusDocuments",
+            methodProperties: {
+                Documents: [{ DocumentNumber: number }],
             },
         });
-        return data;
+
+        if (data.data[0].StatusCode === "3")
+            return rejectWithValue(`ТТН за номером ${number} не знайдено`);
+
+        const {
+            Status,
+            RecipientDateTime,
+            ScheduledDeliveryDate,
+            CityRecipient,
+            CitySender,
+            DateCreated,
+            ActualDeliveryDate,
+            WarehouseSender,
+            WarehouseRecipient,
+        } = data.data[0];
+
+        const result = {
+            isLoading: false,
+            status: Status,
+            receivedDate: RecipientDateTime,
+            deliveryDate: ScheduledDeliveryDate,
+            recipientCity: CityRecipient,
+            senderCity: CitySender,
+            dispatchDate: DateCreated,
+            isParcelDelivered: !!ActualDeliveryDate,
+            senderBranch: WarehouseSender,
+            recipientBranch: WarehouseRecipient,
+            error: "",
+        };
+
+        return result;
     } catch (error: any) {
         return rejectWithValue(error.message);
     }

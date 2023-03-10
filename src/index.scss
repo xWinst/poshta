@@ -3,9 +3,21 @@
 
 @import 'sass/variables';
 @import 'sass/reset';
-@import 'sass/common';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  background-image: $bgGradient;
+  color: $mainColor;
+}
 
 .main {
   padding: 10px;
-  background-image: $bgGradient;
 }

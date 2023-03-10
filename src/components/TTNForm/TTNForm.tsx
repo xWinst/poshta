@@ -1,16 +1,21 @@
 import { FC, useState, FormEvent, ChangeEvent } from "react";
+import { useAppDispatch } from "hooks/reduxHooks";
 import { Button } from "components";
 import s from "./TTNForm.module.scss";
+import { getStatus } from "redux/statusOperation";
 
 const TTNForm: FC = () => {
     const [TTN, setTTN] = useState<string>("");
     const [error, setError] = useState<string>("");
 
+    const dispatch = useAppDispatch();
+
     const submitData = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const pattern = /^[125]\d{13}$/;
-        if (pattern.test(TTN)) console.log("TTN: ", TTN);
-        else setError("Невірний формат номеру ТТН");
+        if (pattern.test(TTN)) {
+            dispatch(getStatus(TTN));
+        } else setError("Невірний формат номеру ТТН");
     };
 
     const saveData = (event: ChangeEvent<HTMLInputElement>) => {
