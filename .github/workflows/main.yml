@@ -1,0 +1,8 @@
+name: My Workflow
+on: [push]
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: https://api.novaposhta.ua/v2.0/json/
+        run: echo ${{ REACT_APP_BASE_URL }}
