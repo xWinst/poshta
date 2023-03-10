@@ -5,6 +5,11 @@ import { Header, Loader, Main, BranchesList, BranchInfo } from "components";
 const PageNotFound = lazy(() => import("pages/PageNotFound/PageNotFound"));
 
 export const App: FC = () => {
+    const { REACT_APP_BASE_URL, REACT_APP_API_KEY } = process.env;
+    console.log("REACT_APP_API_KEY: ", REACT_APP_API_KEY);
+    console.log("REACT_APP_BASE_URL: ", REACT_APP_BASE_URL);
+    console.log("process.env: ", process.env);
+
     return (
         <>
             <Header />
