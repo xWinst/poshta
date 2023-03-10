@@ -1,14 +1,22 @@
-import { FC, useState, FormEvent, ChangeEvent } from "react";
-import { useAppDispatch } from "hooks/reduxHooks";
+import { FC, useState, useEffect, FormEvent, ChangeEvent } from "react";
+import { useAppDispatch, useAppSelector } from "hooks/reduxHooks";
 import { Button } from "components";
 import s from "./TTNForm.module.scss";
 import { getStatus } from "redux/statusOperation";
 
 const TTNForm: FC = () => {
+    const currentTTN = useAppSelector((state) => state.history.currentTTN);
     const [TTN, setTTN] = useState<string>("");
     const [error, setError] = useState<string>("");
 
     const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        if (currentTTN) {
+            setTTN(currentTTN);
+            dispatch(getStatus(currentTTN));
+        }
+    }, [currentTTN, dispatch]);
 
     const submitData = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
