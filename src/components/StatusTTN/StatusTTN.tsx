@@ -9,8 +9,6 @@ const getBranch = (branch: string, city: string) => {
 };
 
 const StatusTTN: FC = () => {
-    const info = useAppSelector((state) => state.status);
-
     const {
         status,
         receivedDate,
