@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/poshta/static/css/main.596ff214.css",
-    "main.js": "/poshta/static/js/main.e7265933.js",
+    "main.js": "/poshta/static/js/main.904e8811.js",
     "static/css/371.cef96682.chunk.css": "/poshta/static/css/371.cef96682.chunk.css",
     "static/js/371.5ff42d1c.chunk.js": "/poshta/static/js/371.5ff42d1c.chunk.js",
     "static/media/icons.svg": "/poshta/static/media/icons.2025235df5f86712c5c5a06f2c7a8544.svg",
     "index.html": "/poshta/index.html",
     "main.596ff214.css.map": "/poshta/static/css/main.596ff214.css.map",
-    "main.e7265933.js.map": "/poshta/static/js/main.e7265933.js.map",
+    "main.904e8811.js.map": "/poshta/static/js/main.904e8811.js.map",
     "371.cef96682.chunk.css.map": "/poshta/static/css/371.cef96682.chunk.css.map",
     "371.5ff42d1c.chunk.js.map": "/poshta/static/js/371.5ff42d1c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.596ff214.css",
-    "static/js/main.e7265933.js"
+    "static/js/main.904e8811.js"
   ]
 }
