@@ -27,3 +27,8 @@ jobs:
               with:
                   branch: gh-pages
                   folder: build
+
+            - name: Debug
+              run: |
+                  echo "REACT_APP_BASE_URL: $REACT_APP_BASE_URL"
+                  echo "REACT_APP_API_KEY: $REACT_APP_API_KEY"
