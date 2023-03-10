@@ -10,11 +10,10 @@ a {
   text-decoration: none;
 }
 
-
 h2,
 p {
   margin: 0;
-  margin: 0;
+  padding: 0;
 }
 
 img {
@@ -32,12 +31,3 @@ button {
 input:focus {
   outline: none;
 }
-
-// input::-webkit-outer-spin-button,
-// input::-webkit-inner-spin-button {
-//     -webkit-appearance: none;
-// }
-
-// input[type='number'] {
-//     -moz-appearance: textfield;
-// }

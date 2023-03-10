@@ -1,78 +1,40 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getStatus } from "./statusOperation";
+import { getStatus, Status } from "./statusOperation";
 
-// type StatusState = {
-//     status: string;
-//     senderAddress: string;
-//     recipientAddress: string;
-// };
-
-// interface StatusAction {
-//     type: string;
-//     payload: {
-//       status: string;
-//       senderAddress: string;
-//       recipientAddress: string;
-//     };
-//   }
-
-const initialState = {
+const initialState: Status = {
+    isLoading: false,
     status: "",
-    senderAddress: "",
-    recipientAddress: "",
+    receivedDate: "",
+    deliveryDate: "",
+    recipientCity: "",
+    senderCity: "",
+    dispatchDate: "",
+    isParcelDelivered: false,
+    senderBranch: "",
+    recipientBranch: "",
+    error: "",
 };
 
 const statusSlice = createSlice({
     name: "status",
     initialState,
-    reducers: {
-        // setStatus: (state, action) => {
-        //     state = { ...action.payload };
-        // },
-    },
+    reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(getStatus.pending, (state, action: PayloadAction) => {
-            if (typeof action.payload === "object" && action.payload !== null) {
-                const { status, senderAddress, recipientAddress } =
-                    action.payload;
-                state.status = status;
-                state.senderAddress = senderAddress;
-                state.recipientAddress = recipientAddress;
-            }
-        });
+        builder
+            .addCase(getStatus.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(
+                getStatus.fulfilled,
+                (state, action: PayloadAction<Status>) => action.payload
+            )
+            .addCase(getStatus.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            });
     },
 });
 
 // export const { setStatus } = statusSlice.actions;
 
 export default statusSlice.reducer;
-
-// extraReducers: (builder) => {
-//     builder.addCase(
-//         getStatus.pending,
-//         (
-//             state,
-//             action: PayloadAction<
-//                 undefined,
-//                 string,
-//                 {
-//                     arg: undefined;
-//                     requestId: string;
-//                     requestStatus: "pending";
-//                 },
-//                 never
-//             >
-//         ) => {
-//             if (
-//                 typeof action.payload === "object" &&
-//                 action.payload !== null
-//             ) {
-//                 const { status, senderAddress, recipientAddress } =
-//                     action.payload;
-//                 state.status = status;
-//                 state.senderAddress = senderAddress;
-//                 state.recipientAddress = recipientAddress;
-//             }
-//         }
-//     );
-// },
