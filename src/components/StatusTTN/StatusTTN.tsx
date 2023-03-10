@@ -23,6 +23,8 @@ const StatusTTN: FC = () => {
         error,
     } = useAppSelector((state) => state.status);
 
+    if (!status) return null;
+
     return (
         <div className={s.container}>
             {error ? (
@@ -44,11 +46,11 @@ const StatusTTN: FC = () => {
                     <div>
                         <p className={s.title}>Відправка</p>
 
-                        {deliveryDate ? (
+                        {dispatchDate ? (
                             <>
                                 <div className={s.infoBox}>
                                     <p>Дата та час:</p>
-                                    <p className={s.info}>{deliveryDate}</p>
+                                    <p className={s.info}>{dispatchDate}</p>
                                 </div>
                                 <div className={s.infoBox}>
                                     <p>Адреса:</p>
@@ -70,7 +72,7 @@ const StatusTTN: FC = () => {
                                 <p>Очікуваний час:</p>
                             )}
                             <div className={s.textBox}>
-                                <p className={s.info}>{dispatchDate}</p>
+                                <p className={s.info}>{deliveryDate}</p>
                             </div>
                         </div>
 

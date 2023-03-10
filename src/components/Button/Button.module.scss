@@ -2,9 +2,9 @@
 
 .button {
     display: block;
-    padding: 8px 12px;
+    padding: 10px 15px;
     font-weight: 700;
-    border: 2px solid $secondColor;
+    border: none;
     border-radius: 8px;
     background-color: $secondColor;
     color: $accentColor;
@@ -14,6 +14,6 @@
 .button:hover, .button.focus {
     background-color: $accentColor;
     color: $secondColor;
-    border: 2px solid $accentColor;
     transition: $transition;
 }
+

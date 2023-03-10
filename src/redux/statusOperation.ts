@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { addTTN } from "./historyReducer";
 
 const { REACT_APP_BASE_URL, REACT_APP_API_KEY } = process.env;
 
@@ -23,7 +24,7 @@ export const getStatus = createAsyncThunk<
     Status,
     string,
     { rejectValue: string }
->("getStatus", async (number, { rejectWithValue }) => {
+>("getStatus", async (number, { dispatch, rejectWithValue }) => {
     try {
         const { data } = await axios.post("", {
             apiKey: REACT_APP_API_KEY,
@@ -36,6 +37,8 @@ export const getStatus = createAsyncThunk<
 
         if (data.data[0].StatusCode === "3")
             return rejectWithValue(`ТТН за номером ${number} не знайдено`);
+
+        dispatch(addTTN(number));
 
         const {
             Status,
