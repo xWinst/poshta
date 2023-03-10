@@ -16,10 +16,11 @@ jobs:
                   npm install
                   npm run build
 
-            - name: Set Environment Variables
-              run: |
-                  echo "REACT_APP_BASE_URL=${{ secrets.REACT_APP_BASE_URL }}" >> $GITHUB_ENV
-                  echo "REACT_APP_API_KEY=${{ secrets.REACT_APP_API_KEY }}" >> $GITHUB_ENV
+            - name: Set up environment variables
+              env:
+                  REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
+                  REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+              run: echo "Environment variables are set up"
 
             - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@4.1.0
