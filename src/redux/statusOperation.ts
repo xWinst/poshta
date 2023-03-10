@@ -2,7 +2,7 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { addTTN } from "./historyReducer";
 
-// const { REACT_APP_BASE_URL, REACT_APP_API_KEY } = process.env;
+//const { REACT_APP_BASE_URL, REACT_APP_API_KEY } = process.env;
 
 axios.defaults.baseURL = "https://api.novaposhta.ua/v2.0/json/";
 
