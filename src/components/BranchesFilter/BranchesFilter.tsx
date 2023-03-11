@@ -18,6 +18,7 @@ const BranchesFilter: FC = () => {
                         <input
                             className={s.hidden}
                             type="checkbox"
+                            onChange={() => {}}
                             checked={filter[i]}
                         />
                         <Icon

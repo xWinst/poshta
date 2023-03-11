@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getBranches, Branch } from "./branchesOperation";
+import { getWarehouses, Branch } from "./branchesOperation";
 
 type BranchesState = {
     list: Branch[];
@@ -21,7 +21,7 @@ const branchesSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(
-            getBranches.fulfilled,
+            getWarehouses.fulfilled,
             (state, action: PayloadAction<Branch[]>) => {
                 state.list = action.payload;
             }
