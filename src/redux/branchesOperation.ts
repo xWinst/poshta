@@ -7,6 +7,7 @@ export type Branch = {
     id: string;
     name: string;
     adress: string;
+    type: string;
     phone: string;
     maxWeight: number;
     maxDimensions: string;
@@ -44,6 +45,7 @@ export const getBranches = createAsyncThunk<
                 id: branch.Ref,
                 name: branch.Description,
                 adress: branch.ShortAddress,
+                type: branch.TypeOfWarehouse,
                 phone: branch.Phone,
                 maxWeight: branch.PlaceMaxWeightAllowed,
                 maxDimensions: `${Width} x ${Height} x ${Length}`,
@@ -56,13 +58,12 @@ export const getBranches = createAsyncThunk<
                 hasSelfWorkplaces: branch.SelfServiceWorkplacesCount === "1",
                 canGetMoneyTransfer: branch.CanGetMoneyTransfer === "1",
                 hasGeneratorEnabled: branch.GeneratorEnabled === "1",
-                schedule:branch.Schedule,
+                schedule: branch.Schedule,
                 receptionSchedule: branch.Reception,
-                deliverySchedule: branch.Delivery
+                deliverySchedule: branch.Delivery,
             };
         });
 
-       
         return result;
     } catch (error: any) {
         return rejectWithValue(error.message);

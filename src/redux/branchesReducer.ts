@@ -8,7 +8,7 @@ type BranchesState = {
 
 const initialState: BranchesState = {
     list: [],
-    filter: [false, true, false, true, false],
+    filter: [true, false, false],
 };
 
 const branchesSlice = createSlice({

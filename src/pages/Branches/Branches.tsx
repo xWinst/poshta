@@ -1,4 +1,4 @@
-import { BranchesForm, BranchesFilter } from "components";
+import { BranchesForm, BranchesFilter, BranchesList } from "components";
 import { FC } from "react";
 
 const Branches: FC = () => {
@@ -6,6 +6,7 @@ const Branches: FC = () => {
         <div>
             <BranchesForm />
             <BranchesFilter />
+            <BranchesList />
         </div>
     );
 };
