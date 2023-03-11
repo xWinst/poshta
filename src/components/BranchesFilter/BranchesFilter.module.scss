@@ -1,0 +1,24 @@
+@import '../../sass/variables';
+@import '../../sass/mixins';
+@import '../../sass/hidden';
+
+.checkBox{
+    @extend %flex-align-center;
+}
+
+.hidden {
+    @extend .visually-hidden;
+}
+
+.checkBoxIcon {
+    margin-right: 8px;
+    fill: $thirdColor;
+    border: 2px solid $secondColor;
+    border-radius: 2px;
+
+    .hidden:checked + & {
+        border-color: transparent;
+        background-color: $secondColor;
+        background-origin: border-box;
+    }
+}
