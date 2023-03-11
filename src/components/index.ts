@@ -6,5 +6,7 @@ export { default as Main } from "./Main/Main";
 export { default as TTNForm } from "./TTNForm/TTNForm";
 export { default as StatusTTN } from "./StatusTTN/StatusTTN";
 export { default as History } from "./History/History";
+export { default as BranchesForm } from "./BranchesForm/BranchesForm";
+export { default as BranchesFilter } from "./BranchesFilter/BranchesFilter";
 export { default as BranchesList } from "./BranchesList/BranchesList";
 export { default as BranchInfo } from "./BranchInfo/BranchInfo";

@@ -1,0 +1,33 @@
+@import '../../sass/variables';
+@import '../../sass/mixins';
+
+.list {
+    @extend %flex-align-center;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+
+    li {
+        width: 100%;
+        padding: 8px;
+        font-weight: 700;
+        font-size: 16px;
+        border-radius: 6px;
+        box-shadow: $boxShadow;
+        text-align: center;
+        background-image: $bgGradient;
+        cursor: pointer;
+
+    }
+
+    li:hover {
+        scale: 1.03;
+        transition: scale 300ms ease;
+    }
+}
+
+.adress {
+    margin-top: 4px;
+    font-weight: 400;
+    font-size: 10px;
+}
