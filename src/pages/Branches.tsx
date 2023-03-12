@@ -3,11 +3,11 @@ import { FC } from "react";
 
 const Branches: FC = () => {
     return (
-        <div>
+        <>
             <BranchesForm />
             <BranchesFilter />
             <BranchesList />
-        </div>
+        </>
     );
 };
 

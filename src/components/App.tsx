@@ -1,9 +1,10 @@
 import { FC, Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Header, Loader, Main, BranchInfo } from "components";
+import { Header, Loader, BranchInfo } from "components";
+import { Main } from "pages";
 
-const Branches = lazy(() => import("pages/Branches/Branches"));
-const PageNotFound = lazy(() => import("pages/PageNotFound/PageNotFound"));
+const Branches = lazy(() => import("pages/Branches"));
+const PageNotFound = lazy(() => import("pages/PageNotFound"));
 
 export const App: FC = () => {
     return (

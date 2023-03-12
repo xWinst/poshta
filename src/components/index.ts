@@ -2,7 +2,7 @@ export { default as Loader } from "./Loader/Loader";
 export { default as Button } from "./Button/Button";
 export { default as Icon } from "./Icon/Icon";
 export { default as Header } from "./Header/Header";
-export { default as Main } from "./Main/Main";
+export { default as Main } from "../pages/Main";
 export { default as TTNForm } from "./TTNForm/TTNForm";
 export { default as StatusTTN } from "./StatusTTN/StatusTTN";
 export { default as History } from "./History/History";
