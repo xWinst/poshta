@@ -3,6 +3,7 @@
 
 @import 'sass/variables';
 @import 'sass/reset';
+@import 'sass/mixins';
 
 html {
   scroll-behavior: smooth;
@@ -19,5 +20,15 @@ body {
 }
 
 .main {
-  padding: 10px;
+  padding: 115px 10px 10px;
 }
+
+@include mobile {
+  .main {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 100px 10px 10px;;
+  }
+}
+
+

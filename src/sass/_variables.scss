@@ -1,7 +1,7 @@
 $mainColor: #222222;
 $secondColor: #2937fa;
 $thirdColor: #eeeeee;
-$accentColor:#2cff00;
+$accentColor:#fbff00;
 $errorColor: #ff0000;
 
 $bgGradient: linear-gradient(135deg, #d4efff 40%, #57d5f5);
@@ -12,6 +12,12 @@ $titleGradient: radial-gradient(
     circle at center,
     #57d5f5 30%,
     #d4efff 75%
+);
+
+$topicGradient: radial-gradient(
+    circle at center,
+    #92e5fa 30%,
+    transparent 75%
 );
 
 $loaderSize: 200px;
