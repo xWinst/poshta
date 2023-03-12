@@ -1,0 +1,13 @@
+@import '../../sass/mixins';
+
+.container {
+    width: 100%;
+    height: 100vw;
+}
+
+@include mobile {
+    .container {
+        width: 420px;
+        height: 420px;
+    }
+  }

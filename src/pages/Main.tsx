@@ -1,12 +1,16 @@
-import { TTNForm, StatusTTN, History } from "components";
+import { TTNForm, StatusTTN, History, Loader } from "components";
+import { useAppSelector } from "hooks/reduxHooks";
 import { FC } from "react";
 
 const Main: FC = () => {
+    const isLoading = useAppSelector((state) => state.status.isLoading);
+
     return (
         <>
             <TTNForm />
             <StatusTTN />
             <History />
+            {isLoading && <Loader />}
         </>
     );
 };

@@ -1,7 +1,8 @@
 import { FC } from "react";
-import { Loader } from "components";
+import { Icon } from "components";
 import { useAppSelector } from "hooks/reduxHooks";
 import s from "./StatusTTN.module.scss";
+import { useNavigate } from "react-router";
 
 const getBranch = (branch: string, city: string) => {
     const index = branch.indexOf(":") + 1;
@@ -19,11 +20,18 @@ const StatusTTN: FC = () => {
         recipientBranch,
         recipientCity,
         isParcelDelivered,
-        isLoading,
+        senderBranchId,
+        recipientBranchId,
         error,
     } = useAppSelector((state) => state.status);
 
+    const navigate = useNavigate();
+
     if (!status) return null;
+
+    const getInfo = (id: string) => {
+        navigate(`/branches/${id}`);
+    };
 
     return (
         <div className={s.container}>
@@ -31,61 +39,67 @@ const StatusTTN: FC = () => {
                 <p className={s.error}>{error}&nbsp;&#128577;</p>
             ) : (
                 <>
-                    <div>
-                        <p className={s.title}>Статус</p>
-                        <p className={s.status}>{status}</p>
+                    <p className={s.title}>Статус</p>
+                    <p className={s.status}>{status}</p>
 
-                        {receivedDate && (
+                    {receivedDate && (
+                        <div className={s.infoBox}>
+                            <p>Дата та час:</p>
+                            <p>{receivedDate}</p>
+                        </div>
+                    )}
+
+                    <p className={s.title}>Відправка</p>
+
+                    {dispatchDate ? (
+                        <>
                             <div className={s.infoBox}>
                                 <p>Дата та час:</p>
-                                <p className={s.info}>{receivedDate}</p>
+                                <p>{dispatchDate}</p>
                             </div>
-                        )}
-                    </div>
+                            <div className={s.infoBox}>
+                                <p>
+                                    Адреса:
+                                    <Icon
+                                        cn={s.icon}
+                                        icon="info"
+                                        w={20}
+                                        onClick={() => getInfo(senderBranchId)}
+                                    />
+                                </p>
+                                <p>{getBranch(senderBranch, senderCity)}</p>
+                            </div>
+                        </>
+                    ) : (
+                        <p>Інформація відсутня</p>
+                    )}
 
-                    <div>
-                        <p className={s.title}>Відправка</p>
-
-                        {dispatchDate ? (
-                            <>
-                                <div className={s.infoBox}>
-                                    <p>Дата та час:</p>
-                                    <p className={s.info}>{dispatchDate}</p>
-                                </div>
-                                <div className={s.infoBox}>
-                                    <p>Адреса:</p>
-                                    <p className={s.info}>
-                                        {getBranch(senderBranch, senderCity)}
-                                    </p>
-                                </div>
-                            </>
+                    <p className={s.title}>Доставка</p>
+                    <div className={s.infoBox}>
+                        {isParcelDelivered ? (
+                            <p>Дата та час:</p>
                         ) : (
-                            <p className={s.info}>Інформація відсутня</p>
+                            <p>Очікуваний час:</p>
                         )}
+                        <div className={s.textBox}>
+                            <p>{deliveryDate}</p>
+                        </div>
                     </div>
-                    <div>
-                        <p className={s.title}>Доставка</p>
-                        <div className={s.infoBox}>
-                            {isParcelDelivered ? (
-                                <p>Дата та час:</p>
-                            ) : (
-                                <p>Очікуваний час:</p>
-                            )}
-                            <div className={s.textBox}>
-                                <p className={s.info}>{deliveryDate}</p>
-                            </div>
-                        </div>
 
-                        <div className={s.infoBox}>
-                            <p>Адреса:</p>
-                            <p className={s.info}>
-                                {getBranch(recipientBranch, recipientCity)}
-                            </p>
-                        </div>
+                    <div className={s.infoBox}>
+                        <p>
+                            Адреса:
+                            <Icon
+                                cn={s.icon}
+                                icon="info"
+                                w={20}
+                                onClick={() => getInfo(recipientBranchId)}
+                            />
+                        </p>
+                        <p>{getBranch(recipientBranch, recipientCity)}</p>
                     </div>
                 </>
             )}
-            {isLoading && <Loader />}
         </div>
     );
 };

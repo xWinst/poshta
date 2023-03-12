@@ -13,7 +13,8 @@ const History: FC = () => {
         dispatch(setTTN(ttn));
     };
 
-    const remove = (ttn: string) => {
+    const remove = (e: React.MouseEvent<SVGSVGElement>, ttn: string) => {
+        e.stopPropagation();
         dispatch(removeTTN(ttn));
     };
 
@@ -29,12 +30,12 @@ const History: FC = () => {
             </Button>
             <ul className={s.list}>
                 {list.map((ttn) => (
-                    <li key={ttn} onClick={() => getStatus(ttn)}>
+                    <li key={ttn} onClick={(e) => getStatus(ttn)}>
                         <p>{ttn}</p>
                         <Icon
                             icon="delete"
                             w={20}
-                            onClick={() => remove(ttn)}
+                            onClick={(e) => remove(e, ttn)}
                         />
                     </li>
                 ))}
