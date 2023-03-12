@@ -12,6 +12,8 @@ const initialState: Status = {
     isParcelDelivered: false,
     senderBranch: "",
     recipientBranch: "",
+    senderBranchId: "",
+    recipientBranchId: "",
     error: "",
 };
 

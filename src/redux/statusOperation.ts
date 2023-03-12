@@ -17,6 +17,8 @@ export type Status = {
     isParcelDelivered: boolean;
     senderBranch: string;
     recipientBranch: string;
+    senderBranchId: string;
+    recipientBranchId: string;
     error: string | undefined;
 };
 
@@ -50,6 +52,8 @@ export const getStatus = createAsyncThunk<
             ActualDeliveryDate,
             WarehouseSender,
             WarehouseRecipient,
+            WarehouseSenderInternetAddressRef,
+            WarehouseRecipientInternetAddressRef,
         } = data.data[0];
 
         const result = {
@@ -63,6 +67,8 @@ export const getStatus = createAsyncThunk<
             isParcelDelivered: !!ActualDeliveryDate,
             senderBranch: WarehouseSender,
             recipientBranch: WarehouseRecipient,
+            senderBranchId: WarehouseSenderInternetAddressRef,
+            recipientBranchId: WarehouseRecipientInternetAddressRef,
             error: "",
         };
 
