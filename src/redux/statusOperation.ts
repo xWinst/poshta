@@ -1,7 +1,8 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { addTTN } from "./historyReducer";
 
-const { REACT_APP_BASE_URL, REACT_APP_API_KEY } = process.env;
+//const { REACT_APP_BASE_URL, REACT_APP_API_KEY } = process.env;
 
 axios.defaults.baseURL = "https://api.novaposhta.ua/v2.0/json/";
 
@@ -25,7 +26,7 @@ export const getStatus = createAsyncThunk<
     Status,
     string,
     { rejectValue: string }
->("getStatus", async (number, { rejectWithValue }) => {
+>("getStatus", async (number, { dispatch, rejectWithValue }) => {
     try {
         const { data } = await axios.post("", {
             apiKey: "8e904f55406e03101da547dfe0c30720",
@@ -38,6 +39,8 @@ export const getStatus = createAsyncThunk<
 
         if (data.data[0].StatusCode === "3")
             return rejectWithValue(`ТТН за номером ${number} не знайдено`);
+
+        dispatch(addTTN(number));
 
         const {
             Status,

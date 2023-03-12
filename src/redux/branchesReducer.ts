@@ -13,13 +13,19 @@ const initialState: BranchesState = {
     filter: [true, true, false],
     isLoading: false,
     error: "",
+    filter: [true, false, false],
 };
 
 const branchesSlice = createSlice({
     name: "branches",
     initialState,
-    reducers: {},
+    reducers: {
+        changeFilter: (state, action: PayloadAction<number>) => {
+            state.filter[action.payload] = !state.filter[action.payload];
+        },
+    },
     extraReducers: (builder) => {
+
         builder
             .addCase(getWarehouses.pending, (state) => {
                 state.isLoading = true;
@@ -37,5 +43,7 @@ const branchesSlice = createSlice({
             });
     },
 });
+
+export const { changeFilter } = branchesSlice.actions;
 
 export default branchesSlice.reducer;

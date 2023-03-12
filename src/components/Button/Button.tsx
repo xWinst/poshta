@@ -14,9 +14,8 @@ const Button: FC<ButtonProps> = ({
     onClick,
     children,
 }) => {
-    const className = cn ? s[cn] : s.button;
     return (
-        <button type={type} className={className} onClick={onClick}>
+        <button type={type} className={`${s.button} ${cn}`} onClick={onClick}>
             {children}
         </button>
     );

@@ -16,7 +16,7 @@ jobs:
                   npm install
                   npm run build
 
-            - name: Set Environment Variables
+            - name: Set up environment variables
               env:
                   REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
                   REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}

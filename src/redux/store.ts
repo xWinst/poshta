@@ -12,6 +12,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import statusReducer from "./statusReducer";
 import historyReducer from "./historyReducer";
+import branchesReducer from "./branchesReducer";
 
 const persistConfig = {
     key: "history",
@@ -22,6 +23,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
     status: statusReducer,
     history: persistReducer(persistConfig, historyReducer),
+    branches: branchesReducer,
 });
 
 export const store = configureStore({
