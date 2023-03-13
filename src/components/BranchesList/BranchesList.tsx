@@ -29,14 +29,27 @@ const BranchesList: FC = () => {
     );
 
     return (
-        <ul className={s.list}>
-            {filteredList.map(({ id, name, adress }) => (
-                <li key={id} onClick={() => navigate(`/branches/${id}`)}>
-                    <p>{trimString(name)}</p>
-                    <p className={s.adress}>{adress}</p>
-                </li>
-            ))}
-        </ul>
+        <>
+            {list[0]?.isShow && (
+                <>
+                    <div className={s.title}>
+                        <p className={s.city}>{list[0].city}</p>
+                        <p>Список відділень:</p>
+                    </div>
+                    <ul className={s.list}>
+                        {filteredList.map(({ id, name, adress }) => (
+                            <li
+                                key={id}
+                                onClick={() => navigate(`/branches/${id}`)}
+                            >
+                                <p>{trimString(name)}</p>
+                                <p className={s.adress}>{adress}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </>
+            )}
+        </>
     );
 };
 

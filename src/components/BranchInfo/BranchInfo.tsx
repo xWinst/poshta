@@ -46,40 +46,53 @@ const BranchesInfo: FC = () => {
                         <p className={s.propName}>Адреса:</p>
                         <p className={s.propValue}>{branch.adress}</p>
                     </div>
-                    <div className={s.prop}>
-                        <p className={s.propName}>Телефон:</p>
-                        <p className={s.propValue}>{branch.phone}</p>
-                    </div>
-                    <div className={s.prop}>
-                        <p className={s.propName}>Обмеження ваги (кг):</p>
-                        <p className={s.propValue}>{branch.maxWeight}</p>
-                    </div>
+                    {branch.phone && (
+                        <div className={s.prop}>
+                            <p className={s.propName}>Телефон:</p>
+                            <p className={s.propValue}>{branch.phone}</p>
+                        </div>
+                    )}
+                    {branch.maxWeight !== 0 && (
+                        <div className={s.prop}>
+                            <p className={s.propName}>Обмеження ваги (кг):</p>
+                            <p className={s.propValue}>{branch.maxWeight}</p>
+                        </div>
+                    )}
                     <div className={s.prop}>
                         <p>Обмеження за габаритами (см):</p>
                         <p className={s.propValue}>{branch.maxDimensions}</p>
                     </div>
-
-                    {availableServices.length > 0 && (
-                        <ul className={s.list}>
-                            Доступні послуги та сервіси:
-                            {availableServices.map((service) => (
-                                <li key={service}>{service}</li>
-                            ))}
-                        </ul>
-                    )}
-                    <p className={s.title}>Графік роботи</p>
-                    <ul className={s.schedule}>
-                        {daysOfWeek.map((day) => (
-                            <li key={day}>
-                                <p className={s.day}>{days[day]}</p>
-                                <p className={s.time}>{branch.schedule[day]}</p>
-                            </li>
-                        ))}
-                    </ul>
+                    <div className={s.box}>
+                        {availableServices.length > 0 && (
+                            <div>
+                                <p className={s.title}>
+                                    Доступні послуги та сервіси:
+                                </p>
+                                <ul className={s.list}>
+                                    {availableServices.map((service) => (
+                                        <li key={service}>{service}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                        <div>
+                            <p className={s.title}>Графік роботи</p>
+                            <ul className={s.schedule}>
+                                {daysOfWeek.map((day) => (
+                                    <li key={day}>
+                                        <p className={s.day}>{days[day]}</p>
+                                        <p className={s.time}>
+                                            {branch.schedule[day]}
+                                        </p>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
                     <Map {...position} />
                 </>
             ) : (
-                <div>Відділення не знайдено</div>
+                <div className={s.title}>Відділення не знайдено</div>
             )}
             {isLoading && <Loader />}
         </>

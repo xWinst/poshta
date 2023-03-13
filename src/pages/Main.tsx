@@ -8,8 +8,10 @@ const Main: FC = () => {
     return (
         <>
             <TTNForm />
-            <StatusTTN />
-            <History />
+            <div className="box">
+                <StatusTTN />
+                <History />
+            </div>
             {isLoading && <Loader />}
         </>
     );

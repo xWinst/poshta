@@ -23,11 +23,12 @@ export type Branch = {
     canGetMoneyTransfer: boolean;
     hasGeneratorEnabled: boolean;
     schedule: Days;
+    isShow: boolean;
 };
 
 export const getWarehouses = createAsyncThunk<
     Branch[],
-    {},
+    { CityName?: string; Ref?: string },
     { rejectValue: string }
 >("getWarehouses", async (method, { rejectWithValue }) => {
     try {
@@ -48,7 +49,7 @@ export const getWarehouses = createAsyncThunk<
                 adress: branch.ShortAddress,
                 type: branch.TypeOfWarehouse,
                 phone: branch.Phone,
-                maxWeight: branch.PlaceMaxWeightAllowed,
+                maxWeight: Number(branch.PlaceMaxWeightAllowed),
                 maxDimensions: `${Width} x ${Height} x ${Length}`,
                 longitude: Number(branch.Longitude),
                 latitude: Number(branch.Latitude),
@@ -60,6 +61,7 @@ export const getWarehouses = createAsyncThunk<
                 canGetMoneyTransfer: branch.CanGetMoneyTransfer === "1",
                 hasGeneratorEnabled: branch.GeneratorEnabled === "1",
                 schedule: branch.Schedule,
+                isShow: !!method.CityName,
             };
         });
 

@@ -1,5 +1,5 @@
-@import '../../sass/variables';
-@import '../../sass/mixins';
+@import "../../sass/variables";
+@import "../../sass/mixins";
 
 .container {
     margin-top: 30px;
@@ -9,8 +9,6 @@
     border-radius: 8px;
     box-shadow: $boxShadow;
 }
-
-
 
 .title {
     margin-bottom: 10px;
@@ -39,7 +37,6 @@
         cursor: pointer;
         border-radius: 6px;
         box-shadow: $boxShadow;
-
     }
 
     li:hover {
@@ -53,5 +50,22 @@
     right: 0;
 }
 
+@include tablet {
+    .container {
+        width: 240px;
+        margin-left: 15px;
+    }
+}
 
+@include desktop {
+    .container {
+        width: 300px;
+        margin-left: 20px;
+    }
 
+    .list {
+        li {
+            font-size: 18px;
+        }
+    }
+}

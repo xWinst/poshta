@@ -58,15 +58,15 @@ const StatusTTN: FC = () => {
                                 <p>{dispatchDate}</p>
                             </div>
                             <div className={s.infoBox}>
-                                <p>
-                                    Адреса:
+                                <p>Адреса:</p>
+                                <div title="Клацніть щоб перейти до подробиць відділення">
                                     <Icon
                                         cn={s.icon}
                                         icon="info"
                                         w={20}
                                         onClick={() => getInfo(senderBranchId)}
                                     />
-                                </p>
+                                </div>
                                 <p>{getBranch(senderBranch, senderCity)}</p>
                             </div>
                         </>
@@ -87,15 +87,15 @@ const StatusTTN: FC = () => {
                     </div>
 
                     <div className={s.infoBox}>
-                        <p>
-                            Адреса:
+                        <p>Адреса:</p>
+                        <div title="Клацніть щоб перейти до подробиць відділення">
                             <Icon
                                 cn={s.icon}
                                 icon="info"
                                 w={20}
                                 onClick={() => getInfo(recipientBranchId)}
                             />
-                        </p>
+                        </div>
                         <p>{getBranch(recipientBranch, recipientCity)}</p>
                     </div>
                 </>
