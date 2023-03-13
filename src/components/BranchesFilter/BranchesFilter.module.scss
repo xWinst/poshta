@@ -1,8 +1,16 @@
-@import '../../sass/variables';
-@import '../../sass/mixins';
-@import '../../sass/hidden';
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/hidden";
 
-.checkBox{
+.filter {
+    margin-top: 10px;
+
+    li {
+        margin-top: 2px;
+    }
+}
+
+.checkBox {
     @extend %flex-align-center;
 }
 
@@ -12,13 +20,21 @@
 
 .checkBoxIcon {
     margin-right: 8px;
-    fill: $thirdColor;
     border: 2px solid $secondColor;
     border-radius: 2px;
+    fill: none;
 
     .hidden:checked + & {
         border-color: transparent;
         background-color: $secondColor;
         background-origin: border-box;
+        fill: $thirdColor;
+    }
+}
+
+@include tablet {
+    .filter {
+        display: flex;
+        justify-content: space-between;
     }
 }

@@ -11,7 +11,7 @@ const BranchesFilter: FC = () => {
     const dispatch = useAppDispatch();
 
     return (
-        <ul>
+        <ul className={s.filter}>
             {warehouseTypes.map(({ description }, i) => (
                 <li key={description}>
                     <label className={s.checkBox}>

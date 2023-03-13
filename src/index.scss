@@ -1,34 +1,63 @@
-@import 'modern-normalize/modern-normalize.css';
+@import "modern-normalize/modern-normalize.css";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
-@import 'sass/variables';
-@import 'sass/reset';
-@import 'sass/mixins';
+@import "sass/variables";
+@import "sass/reset";
+@import "sass/mixins";
+
+:root {
+    --info-color: #fbff00;
+    --bg-info-color: #2937fa;
+}
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  min-height: 100vh;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-  background-image: $bgGradient;
-  color: $mainColor;
+    min-height: 100vh;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    background-image: $bgGradient;
+    color: $mainColor;
 }
 
 .main {
-  padding: 115px 10px 10px;
+    padding: 115px 10px 10px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
 }
 
 @include mobile {
-  .main {
-    max-width: 440px;
-    margin: 0 auto;
-    padding: 100px 10px 10px;;
-  }
+    .main {
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 100px 20px 10px;
+    }
 }
 
+@include tablet {
+    .main {
+        max-width: 768px;
+    }
 
+    .box {
+        flex-direction: row;
+    }
+}
+
+@include desktop {
+    .main {
+        max-width: 1280px;
+        padding: 100px 30px 20px;
+    }
+
+    body {
+        font-size: 16px;
+    }
+}
