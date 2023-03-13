@@ -33,11 +33,41 @@ body {
     flex-direction: column;
 }
 
+.container {
+    @extend %flex-center;
+    flex-direction: column;
+
+    p {
+        margin: 20px auto;
+    }
+}
+
+.title {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 6px 0;
+    font-weight: 700;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    text-align: center;
+    color: $secondColor;
+    background-image: $titleGradient;
+}
+
+.img404 {
+    width: 100%;
+    height: auto;
+}
+
 @include mobile {
     .main {
         max-width: 480px;
         margin: 0 auto;
         padding: 100px 20px 10px;
+    }
+
+    .img404 {
+        width: 480px;
     }
 }
 
@@ -48,6 +78,10 @@ body {
 
     .box {
         flex-direction: row;
+    }
+
+    .img404 {
+        width: 600px;
     }
 }
 
