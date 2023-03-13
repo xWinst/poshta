@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/poshta/static/css/main.aa3fa51f.css",
+    "main.css": "/poshta/static/css/main.d524f295.css",
     "main.js": "/poshta/static/js/main.10fae8a5.js",
     "static/media/icons.svg": "/poshta/static/media/icons.ebb1f0b1839076593465633b0f37846e.svg",
     "index.html": "/poshta/index.html",
-    "main.aa3fa51f.css.map": "/poshta/static/css/main.aa3fa51f.css.map",
+    "main.d524f295.css.map": "/poshta/static/css/main.d524f295.css.map",
     "main.10fae8a5.js.map": "/poshta/static/js/main.10fae8a5.js.map"
   },
   "entrypoints": [
-    "static/css/main.aa3fa51f.css",
+    "static/css/main.d524f295.css",
     "static/js/main.10fae8a5.js"
   ]
 }
